@@ -4,14 +4,17 @@
 
 **a. Initial design**
 
-- Briefly describe your initial UML design.
-- What classes did you include, and what responsibilities did you assign to each?
+-  My initial UML design included five classes: `Owner`, `Pet`, `Task` (base class), `Scheduler`, and four `Task` subclasses — `FeedingTask`, `WalkTask`, `MedicationTask`, and `AppointmentTask`.
+
+- `Owner` stores the pet owner's basic info (name, email) and holds a reference to their `Pet`.
+- `Pet` stores the pet's attributes (name, species, age) and maintains a list of tasks assigned to it.
+- `Task` is a base class that defines shared attributes for all task types: `title`, `deadline`, `priority`, `duration`, and `is_done`. Each subclass adds task-specific fields.
+- `Scheduler` handles the core logic: sorting tasks by earliest deadline first (EDF), resolving conflicts by giving priority to higher-priority tasks, and generating a daily plan.
+
 
 **b. Design changes**
 
-- Did your design change during implementation?
-- If yes, describe at least one change and why you made it.
-
+- The design has not yet been fully implemented. However, one anticipated change is that `Scheduler` may need a `generate_plan()` method that not only sorts and resolves conflicts but also returns a human-readable explanation of why each task was placed where it was, since the project requires the app to display its reasoning to the user.
 ---
 
 ## 2. Scheduling Logic and Tradeoffs
